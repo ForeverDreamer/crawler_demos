@@ -15,7 +15,7 @@ def request_info(request):
     get = request.GET
     post = request.POST
     cookies = request.COOKIES
-    remote_addr = utils.get_ip_address(request)
+    http_x_forwarded_for, remote_addr, client_ip = utils.get_ip_address(request)
     remote_host = request.META.get("REMOTE_HOST", "")
     # meta = request.META
     headers = request.headers
